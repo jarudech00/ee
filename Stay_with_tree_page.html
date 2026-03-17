@@ -129,80 +129,31 @@
             likeIcon.classList.replace('bxs-heart', 'bx-heart');
         }
     });
+        const track = document.querySelector('.carousel_track');
+        const cards = document.querySelectorAll('.carousel_card');
+        const nextBtn = document.querySelector('.next_btn');
+        const prevBtn = document.querySelector('.prev_btn');
 
-    // --- ส่วนของ Carousel (ที่ต้องเพิ่ม) ---
-    const track = document.querySelector('.carousel_track');
-    const cards = Array.from(track.children);
-    const nextButton = document.querySelector('.next_btn');
-    const prevButton = document.querySelector('.prev_btn');
-    
-    let currentIndex = 0;
+        let counter = 0;
+        const size = 100; // เลื่อนทีละ 100%
 
-    // ฟังก์ชันสั่งเลื่อน
-    function updateSlide() {
-        const slideWidth = cards[0].getBoundingClientRect().width;
-        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    }
+        nextBtn.addEventListener('click', () => {
+            if (counter >= cards.length - 1) {
+                counter = 0; // วนกลับไปรูปแรก
+            } else {
+                counter++;
+            }
+            track.style.transform = 'translateX(' + (-size * counter) + '%)';
+        });
 
-    // ปุ่มถัดไป
-    nextButton.addEventListener('click', () => {
-        currentIndex++;
-        if (currentIndex >= cards.length) {
-            currentIndex = 0; // วนกลับไปรูปแรก
-        }
-        updateSlide();
-    });
-
-    // ปุ่มย้อนกลับ
-    prevButton.addEventListener('click', () => {
-        currentIndex--;
-        if (currentIndex < 0) {
-            currentIndex = cards.length - 1; // ไปรูปรองสุดท้าย
-        }
-        updateSlide();
-    });
-
-    // ป้องกันการเพี้ยนเมื่อย่อหน้าจอ (Resize)
-    window.addEventListener('resize', updateSlide);
-    </script>
-
-<!-- Code injected by live-server -->
-<script>
-	// <![CDATA[  <-- For SVG support
-	if ('WebSocket' in window) {
-		(function () {
-			function refreshCSS() {
-				var sheets = [].slice.call(document.getElementsByTagName("link"));
-				var head = document.getElementsByTagName("head")[0];
-				for (var i = 0; i < sheets.length; ++i) {
-					var elem = sheets[i];
-					var parent = elem.parentElement || head;
-					parent.removeChild(elem);
-					var rel = elem.rel;
-					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
-						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
-						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
-					}
-					parent.appendChild(elem);
-				}
-			}
-			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
-			var address = protocol + window.location.host + window.location.pathname + '/ws';
-			var socket = new WebSocket(address);
-			socket.onmessage = function (msg) {
-				if (msg.data == 'reload') window.location.reload();
-				else if (msg.data == 'refreshcss') refreshCSS();
-			};
-			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
-				console.log('Live reload enabled.');
-				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
-			}
-		})();
-	}
-	else {
-		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
-	}
-	// ]]>
+        prevBtn.addEventListener('click', () => {
+            if (counter <= 0) {
+                counter = cards.length - 1; // วนไปรูปสุดท้าย
+            } else {
+                counter--;
+            }
+            track.style.transform = 'translateX(' + (-size * counter) + '%)';
+        });
 </script>
 </body>
 </html>
