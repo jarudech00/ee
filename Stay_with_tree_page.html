@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/Stay_with_tree.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>Stay with tree cafe</title>
+</head>
+<body>
+<header class="navbar">
+        <a href="index.html" class="navbar_logo">TRIPLE SIX<span>☕</span></a>
+        <div class="navbar_action">
+            <a href="index.html" class="botton_outline">
+                <i class='bx bx-arrow-back'></i> กลับหน้าหลัก
+            </a>
+        </div>
+    </header>
+
+    <section class="main_container">
+        <div class="image_grid">
+            <div class="image_box"><img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree4-820x1024.jpg" alt="1"></div>
+            <div class="image_box"><img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree10-819x1024.jpg" alt="2"></div>
+            <div class="image_box"><img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree3-819x1024.jpg" alt="3"></div>
+        </div>
+
+        <div class="shop_info">
+            <h1 class="shop_name">STAY WITH TREE</h1>
+            <div class="rating_box">
+                <span class="rating_score">4.5</span>
+                <span class="rating_star">
+                    <i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star'></i><i class='bx bxs-star-half'></i>
+                </span>
+                <span class="review_count">( 353 reviews )</span>
+            </div>
+
+            <div class="action_buttons">
+                <span class="action_btn" id="likeBtn">
+                    <i class='bx bx-heart' id="likeIcon"></i>
+                    <span>Like</span>
+                </span>
+                <span class="action_btn">
+                    <i class='bx bx-map-pin'></i>
+                    <span>Map</span>
+                </span>
+                <span class="action_btn">
+                    <i class='bx bx-flag'></i>
+                    <span>Report</span>
+                </span>
+            </div>
+
+            <div class="infor_list">
+                <div class="info_row"><i class='bx bx-map'></i> <span>หมู่บ้านร่มฟ้า ซอยร่มฟ้า 15 ตำบลสนามจันทร์</span></div>
+                <div class="info_row"><i class='bx bx-time-five'></i> <span><span class="status_open">เปิดอยู่</span> · 09:00 – 17:00 น.</span></div>
+                <div class="info_row"><i class='bx bx-phone'></i> <span>064 117 4019</span></div>
+            </div>
+
+            <p class="shop_desc">
+                คาเฟ่สายกรีนที่รวมความสดชื่นของสวนสวยเข้ากับเมนูเครื่องดื่มและขนมโฮมเมดอย่างลงตัว มีโซนที่นั่งให้เลือกหลากหลาย ทั้งบรรยากาศอบอุ่นภายในร้าน ชานพักริมหน้าต่างที่ปกคลุมด้วยไม้เลื้อย หรือมุมสวนที่เงียบสงบ เหมาะสำหรับการพักผ่อนและดื่มด่ำกับธรรมชาติอย่างแท้จริง
+        </div>
+    </section>
+
+    <div class="content_section">
+        <div class="card_grid">
+            <div class="info_card">
+                <h2 class="card_title">Opening Hours</h2>
+                <ul class="hours-list">
+                    <li><span>จันทร์ (Mon)</span> <span>09:00 – 17:00</span></li>
+                    <li><span>อังคาร (Tue)</span> <span>09:00 – 17:00</span></li>
+                    <li><span>พุธ (Wed)</span> <span>09:00 – 17:00</span></li>
+                    <li><span>พฤหัสฯ (Thu)</span> <span>---วันหยุด---</span></li>
+                    <li><span>ศุกร์ (Fri)</span> <span>09:00 – 17:00</span></li>
+                    <li><span>เสาร์ (Sat)</span> <span>09:00 – 17:00</span></li>
+                    <li><span>อาทิตย์ (Sun)</span> <span>09:00 – 17:00</span></li>
+                </ul>
+            </div>
+
+            <div class="info_card">
+                <h2 class="card_title">Serving</h2>
+                <div class="tags_box">
+                    <span class="tag-item">☕ Coffee</span>
+                    <span class="tag-item">🍰 Bakery</span>
+                    <span class="tag-item">🧁 Dessert</span>
+                </div>
+                <h2 class="card_title">Services</h2>
+                <div class="tags_box">
+                    <span class="tag-item">🌿 Garden Seating</span>
+                    <span class="tag-item">📶 Wi-Fi</span>
+                    <span class="tag-item">🚚 Delivery</span>
+                    <span class="tag-item">💰 True money wallet</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>Triple Six ☕</p>
+    </footer>
+
+    <script>
+        likeBtn.addEventListener('click', function() {
+            this.classList.toggle('active');
+            if (likeIcon.classList.contains('bx-heart')) {
+                likeIcon.classList.replace('bx-heart', 'bxs-heart');
+            } else {
+                likeIcon.classList.replace('bxs-heart', 'bx-heart');
+            }
+        });
+    </script>
+
+</body>
+</html>
