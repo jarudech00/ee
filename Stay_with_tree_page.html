@@ -121,6 +121,38 @@
                 likeIcon.classList.replace('bx-heart', 'bxs-heart');
             } else {
                 likeIcon.classList.replace('bxs-heart', 'bx-heart');
+
+                const track = document.querySelector('.carousel_track');
+const cards = Array.from(track.children);
+const nextButton = document.querySelector('.next_btn');
+const prevButton = document.querySelector('.prev_btn');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    // เลื่อน track ตาม index ของรูปภาพ
+    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+}
+
+nextButton.addEventListener('click', () => {
+    currentIndex++;
+    if (currentIndex >= cards.length) {
+        currentIndex = 0; // วนกลับไปรูปแรก
+    }
+    updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = cards.length - 1; // ไปรูปสุดท้าย
+    }
+    updateCarousel();
+});
+
+// ปรับขนาดอัตโนมัติเมื่อมีการย่อ/ขยายหน้าจอ
+window.addEventListener('resize', updateCarousel);
             }
         });
     </script>
