@@ -4,41 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="/css/Stay_with_tree.css">
+    <link rel="stylesheet" href="/tttt/css/StayWithTree.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <title>Stay with tree cafe</title>
+    <title>Capediuim page</title>
 </head>
 <body>
 <header class="navbar">
-        <a href="index.html" class="navbar_logo">TRIPLE SIX<span>☕</span></a>
+        <a href="#" class="navbar_logo">TRIPLE SIX<span>☕</span></a>
         <div class="navbar_action">
-            <a href="index.html" class="botton_outline">
+            <a href="#" class="botton_outline">
                 <i class='bx bx-arrow-back'></i> กลับหน้าหลัก
             </a>
         </div>
     </header>
 
     <section class="main_container">
-                <div class="carousel_wrapper">
-            <div class="carousel_track">
-                <div class="carousel_card">
-                    <img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree4-820x1024.jpg" alt="Stay With Tree">
-                </div>
-                <div class="carousel_card">
-                    <img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree10-819x1024.jpg" alt="Stay With Tree">
-                </div>
-                <div class="carousel_card">
-                    <img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree3-819x1024.jpg" alt="Stay With Tree">
-                </div>
-            </div>
-
-            <button class="nav_btn prev_btn"><i class='bx bx-chevron-left'></i></button>
-            <button class="nav_btn next_btn"><i class='bx bx-chevron-right'></i></button>
-        </div>
         <div class="image_grid">
-
+            <div class="image_box"><img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree4-820x1024.jpg" alt="1"></div>
+            <div class="image_box"><img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree10-819x1024.jpg" alt="2"></div>
+            <div class="image_box"><img src="https://www.tripgether.com/wp-content/uploads/2022/02/Staywithtree3-819x1024.jpg" alt="3"></div>
         </div>
 
         <div class="shop_info">
@@ -115,46 +101,47 @@
     </footer>
 
     <script>
-        likeBtn.addEventListener('click', function() {
-            this.classList.toggle('active');
-            if (likeIcon.classList.contains('bx-heart')) {
-                likeIcon.classList.replace('bx-heart', 'bxs-heart');
-            } else {
-                likeIcon.classList.replace('bxs-heart', 'bx-heart');
+    const likeBtn = document.getElementById('likeBtn');
+    const likeIcon = document.getElementById('likeIcon');
+    
+    likeBtn.addEventListener('click', function() {
+        this.classList.toggle('active');
+        if (likeIcon.classList.contains('bx-heart')) {
+            likeIcon.classList.replace('bx-heart', 'bxs-heart');
+        } else {
+            likeIcon.classList.replace('bxs-heart', 'bx-heart');
+        }
+    });
 
-                const track = document.querySelector('.carousel_track');
-const cards = Array.from(track.children);
-const nextButton = document.querySelector('.next_btn');
-const prevButton = document.querySelector('.prev_btn');
+    const track = document.querySelector('.carousel_track');
+    const cards = Array.from(track.children);
+    const nextButton = document.querySelector('.next_btn');
+    const prevButton = document.querySelector('.prev_btn');
+    
+    let currentIndex = 0;
 
-let currentIndex = 0;
-
-function updateCarousel() {
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    // เลื่อน track ตาม index ของรูปภาพ
-    track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-}
-
-nextButton.addEventListener('click', () => {
-    currentIndex++;
-    if (currentIndex >= cards.length) {
-        currentIndex = 0; // วนกลับไปรูปแรก
+    function updateSlide() {
+        const slideWidth = cards[0].getBoundingClientRect().width;
+        track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
     }
-    updateCarousel();
-});
 
-prevButton.addEventListener('click', () => {
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = cards.length - 1; // ไปรูปสุดท้าย
-    }
-    updateCarousel();
-});
+    nextButton.addEventListener('click', () => {
+        currentIndex++;
+        if (currentIndex >= cards.length) {
+            currentIndex = 0; 
+        }
+        updateSlide();
+    });
 
-// ปรับขนาดอัตโนมัติเมื่อมีการย่อ/ขยายหน้าจอ
-window.addEventListener('resize', updateCarousel);
-            }
-        });
+    prevButton.addEventListener('click', () => {
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = cards.length - 1;
+        }
+        updateSlide();
+    });
+
+    window.addEventListener('resize', updateSlide);
     </script>
 
 </body>
