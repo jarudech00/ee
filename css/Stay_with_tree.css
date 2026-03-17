@@ -159,6 +159,35 @@ a {
 
 .footer { text-align: center; padding: 30px; border-top: 1px solid #ddd; }
 
+.carousel_wrapper {
+    position: relative;
+    width: 100%;
+    /* กำหนดสัดส่วนภาพให้เหมือนเดิม (4:3) หรือปรับตามใจชอบ */
+    aspect-ratio: 4 / 3; 
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+}
+
+.carousel_track {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel_card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* สำคัญ: ทำให้ภาพขยายเต็มโดยไม่แตกหรือบิดเบี้ยว */
+    display: block;
+}
+
+.carousel_card {
+    min-width: 100%; /* บังคับให้ 1 card เต็มพื้นที่ wrapper */
+    height: 100%;
+}
+
 @media (max-width: 900px) {
     .main_container { grid-template-columns: 1fr; }
     .card_grid { grid-template-columns: 1fr; }
