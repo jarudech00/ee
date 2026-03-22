@@ -342,8 +342,33 @@
             รูปภาพ placeholder จาก picsum.photos
         </p>
     </footer>
-    <!--ตรงนี้ด้วยจ้าาาา-->
-    <script src="/Js/home.js"></script>
+        <script>
+        const track = document.querySelector('.carousel_track');
+        const cards = document.querySelectorAll('.carousel_card');
+        const nextBtn = document.querySelector('.next_btn');
+        const prevBtn = document.querySelector('.prev_btn');
+
+        let counter = 0;
+        const size = 100; // เลื่อนทีละ 100%
+
+        nextBtn.addEventListener('click', () => {
+            if (counter >= cards.length - 1) {
+                counter = 0; // วนกลับไปรูปแรก
+            } else {
+                counter++;
+            }
+            track.style.transform = 'translateX(' + (-size * counter) + '%)';
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (counter <= 0) {
+                counter = cards.length - 1; // วนไปรูปสุดท้าย
+            } else {
+                counter--;
+            }
+            track.style.transform = 'translateX(' + (-size * counter) + '%)';
+        });
+</script>
 </body>
 
 </html>
